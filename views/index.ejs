@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Online Testing System</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <% if (user && user.userId) { %>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if (user.role === 'admin') { %>
+                        <li><a href="/admin/dashboard">Admin Panel</a></li>
+                    <% } %>
+                    <li><span class="user-name">Hello, <%= user.name %></span></li>
+                    <li><a href="/logout" class="logout-btn">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to QuizMaster</h1>
+                <p>The Ultimate Online Testing System</p>
+                <% if (user && user.userId) { %>
+                    <a href="/quizzes" class="btn btn-primary">Browse Quizzes</a>
+                <% } else { %>
+                    <a href="/register" class="btn btn-primary">Get Started</a>
+                <% } %>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>📝 Create Quizzes</h3>
+                    <p>Admins can easily create and manage quizzes with multiple questions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Attempt Quizzes</h3>
+                    <p>Students can attempt quizzes and get instant feedback on their performance</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 View Analytics</h3>
+                    <p>Track performance with detailed analytics and leaderboards</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏆 Leaderboard</h3>
+                    <p>Compete with other students and see your ranking</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System | Group: Muhammad Afzal Kalwar, Ayesha Bibi, Hafsa Kanwal Awan</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

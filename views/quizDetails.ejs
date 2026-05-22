@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= quiz.title %> - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/quizzes">Quizzes</a></li>
+                <li><span class="user-name">Hello, <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="quiz-details">
+            <a href="/quizzes" class="btn btn-secondary">← Back to Quizzes</a>
+
+            <div class="quiz-info">
+                <h1><%= quiz.title %></h1>
+                
+                <div class="quiz-meta">
+                    <div class="meta-item">
+                        <span class="label">Category:</span>
+                        <span class="badge"><%= quiz.category %></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Difficulty:</span>
+                        <span class="badge"><%= quiz.difficulty %></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Total Marks:</span>
+                        <span><%= quiz.totalMarks %></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Time Limit:</span>
+                        <span><%= quiz.timeLimit %> minutes</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Questions:</span>
+                        <span><%= questionsCount %></span>
+                    </div>
+                </div>
+
+                <div class="quiz-description">
+                    <h3>Quiz Information</h3>
+                    <ul>
+                        <li>This quiz contains <%= questionsCount %> multiple choice questions</li>
+                        <li>Each question carries specific marks</li>
+                        <li>You have <%= quiz.timeLimit %> minutes to complete the quiz</li>
+                        <li>Your score and percentage will be shown after submission</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-actions">
+                    <a href="/quiz/<%= quiz._id %>/start" class="btn btn-primary btn-lg">Start Quiz</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Quizzes - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><span class="user-name">Hello, <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="quizzes-section">
+            <h1>Available Quizzes</h1>
+            <p class="subtitle">Select a quiz to get started</p>
+
+            <% if (quizzes.length === 0) { %>
+                <div class="empty-state">
+                    <p>No quizzes available at the moment. Please try again later.</p>
+                </div>
+            <% } else { %>
+                <div class="quizzes-grid">
+                    <% quizzes.forEach(quiz => { %>
+                        <div class="quiz-card">
+                            <div class="quiz-header">
+                                <h3><%= quiz.title %></h3>
+                                <span class="category-badge"><%= quiz.category %></span>
+                            </div>
+                            <div class="quiz-body">
+                                <p><strong>Difficulty:</strong> <%= quiz.difficulty %></p>
+                                <p><strong>Total Marks:</strong> <%= quiz.totalMarks %></p>
+                                <p><strong>Time Limit:</strong> <%= quiz.timeLimit %> minutes</p>
+                                <p class="created-by">Created by: <%= quiz.createdBy.name %></p>
+                            </div>
+                            <div class="quiz-footer">
+                                <a href="/quizzes/<%= quiz._id %>" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

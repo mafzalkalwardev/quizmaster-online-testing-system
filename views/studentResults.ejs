@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Results - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/quizzes">Quizzes</a></li>
+                <li><span class="user-name">Hello, <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="results-section">
+            <h1>My Quiz Results</h1>
+            <p class="subtitle">Your performance history</p>
+
+            <% if (results.length === 0) { %>
+                <div class="empty-state">
+                    <p>You haven't attempted any quizzes yet. <a href="/quizzes">Start a quiz</a></p>
+                </div>
+            <% } else { %>
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Quiz Title</th>
+                                <th>Score</th>
+                                <th>Percentage</th>
+                                <th>Submitted At</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% results.forEach(result => { %>
+                                <tr>
+                                    <td><%= result.quizTitle %></td>
+                                    <td><%= result.score %> / <%= result.totalMarks %></td>
+                                    <td class="percentage"><%= result.percentage.toFixed(2) %>%</td>
+                                    <td><%= new Date(result.submittedAt).toLocaleDateString() %></td>
+                                    <td>
+                                        <% if (result.percentage >= 80) { %>
+                                            <span class="status-badge excellent">Excellent</span>
+                                        <% } else if (result.percentage >= 60) { %>
+                                            <span class="status-badge good">Good</span>
+                                        <% } else if (result.percentage >= 40) { %>
+                                            <span class="status-badge fair">Fair</span>
+                                        <% } else { %>
+                                            <span class="status-badge poor">Poor</span>
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attempt: <%= quiz.title %> - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><span class="user-name">Quiz Time!</span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="quiz-attempt">
+            <div class="quiz-header-attempt">
+                <h1><%= quiz.title %></h1>
+                <div class="quiz-timer">
+                    <span id="timer">Time: <span id="time-remaining"><%= quiz.timeLimit %>:00</span></span>
+                </div>
+            </div>
+
+            <% if (previousAttempt) { %>
+                <div class="alert alert-warning">
+                    ⚠️ You have already attempted this quiz. This is a new attempt.
+                </div>
+            <% } %>
+
+            <form id="quizForm" method="POST" action="/quiz/<%= quiz._id %>/submit">
+                <% questions.forEach((question, index) => { %>
+                    <div class="question-card">
+                        <div class="question-number">Question <%= index + 1 %> of <%= questions.length %></div>
+                        <div class="question-marks">Marks: <%= question.marks %></div>
+                        
+                        <h3 class="question-text"><%= question.questionText %></h3>
+
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="<%= question._id %>" value="A" required>
+                                <span class="option-text"><strong>A:</strong> <%= question.optionA %></span>
+                            </label>
+                            
+                            <label class="option">
+                                <input type="radio" name="<%= question._id %>" value="B" required>
+                                <span class="option-text"><strong>B:</strong> <%= question.optionB %></span>
+                            </label>
+                            
+                            <label class="option">
+                                <input type="radio" name="<%= question._id %>" value="C" required>
+                                <span class="option-text"><strong>C:</strong> <%= question.optionC %></span>
+                            </label>
+                            
+                            <label class="option">
+                                <input type="radio" name="<%= question._id %>" value="D" required>
+                                <span class="option-text"><strong>D:</strong> <%= question.optionD %></span>
+                            </label>
+                        </div>
+                    </div>
+                <% }); %>
+
+                <div class="quiz-footer-buttons">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Quiz</button>
+                    <a href="/quizzes" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/quiz-timer.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

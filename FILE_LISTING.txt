@@ -1,0 +1,346 @@
+📦 QUIZMASTER PROJECT - COMPLETE FILE LISTING
+═════════════════════════════════════════════════════════════════
+
+PROJECT ROOT: C:\Users\pc\Desktop\backend_project\quizmaster\
+
+📁 DIRECTORY STRUCTURE
+═════════════════════════════════════════════════════════════════
+
+quizmaster/
+│
+├── 📄 app.js ✓ (MAIN APPLICATION FILE)
+│   └── Express server, route configuration, middleware setup
+│
+├── 📄 package.json ✓ (DEPENDENCIES)
+│   └── express, mongoose, ejs, express-session, nodemon
+│
+├── 📄 README.md ✓ (COMPLETE DOCUMENTATION)
+│   └── Project overview, features, installation, API endpoints
+│
+├── 📄 PROJECT_SUMMARY.txt ✓ (PROJECT OVERVIEW)
+│   └── Completion summary, file structure, metrics
+│
+├── 📄 SETUP.sh ✓ (QUICK START SCRIPT)
+│   └── Automated setup and verification
+│
+├── 📄 .gitignore ✓ (GIT IGNORE RULES)
+│   └── node_modules, .env, OS files
+│
+├── 📁 config/
+│   │
+│   └── 📄 db.js ✓ (DATABASE CONFIGURATION)
+│       └── MongoDB connection URI and setup
+│
+├── 📁 models/
+│   │
+│   ├── 📄 User.js ✓ (USER MODEL)
+│   │   └── Schema: name, email, password, role, createdAt
+│   │
+│   ├── 📄 Quiz.js ✓ (QUIZ MODEL)
+│   │   └── Schema: title, category, difficulty, marks, timeLimit, createdBy
+│   │
+│   ├── 📄 Question.js ✓ (QUESTION MODEL)
+│   │   └── Schema: quizId, questionText, options, correctAnswer, marks
+│   │
+│   ├── 📄 Attempt.js ✓ (ATTEMPT MODEL)
+│   │   └── Schema: studentId, quizId, answers, score, totalQuestions, attemptedAt
+│   │
+│   └── 📄 Result.js ✓ (RESULT MODEL)
+│       └── Schema: studentName, quizTitle, score, percentage, submittedAt
+│
+├── 📁 controllers/
+│   │
+│   ├── 📄 authController.js ✓ (AUTHENTICATION LOGIC)
+│   │   └── Register, Login, Logout with event emission
+│   │
+│   ├── 📄 quizController.js ✓ (QUIZ CRUD OPERATIONS)
+│   │   └── Get, Create, Edit, Delete quizzes
+│   │
+│   ├── 📄 questionController.js ✓ (QUESTION MANAGEMENT)
+│   │   └── Add, Edit, Delete questions for quizzes
+│   │
+│   ├── 📄 attemptController.js ✓ (QUIZ ATTEMPTS & RESULTS)
+│   │   └── Start quiz, Submit answers, Calculate score, View results
+│   │
+│   └── 📄 adminController.js ✓ (ADMIN OPERATIONS)
+│       └── Dashboard, Analytics, Leaderboard, Student management
+│
+├── 📁 routes/
+│   │
+│   ├── 📄 authRoutes.js ✓ (AUTHENTICATION ROUTES)
+│   │   └── /register, /login, /logout
+│   │
+│   ├── 📄 quizRoutes.js ✓ (QUIZ ROUTES - RESTful)
+│   │   └── GET/POST/PUT/DELETE /quizzes endpoints
+│   │
+│   ├── 📄 questionRoutes.js ✓ (QUESTION ROUTES)
+│   │   └── Question CRUD routes
+│   │
+│   ├── 📄 attemptRoutes.js ✓ (ATTEMPT ROUTES)
+│   │   └── Start quiz, Submit, View results
+│   │
+│   └── 📄 adminRoutes.js ✓ (ADMIN ROUTES)
+│       └── Admin dashboard, analytics, management
+│
+├── 📁 middleware/
+│   │
+│   ├── 📄 loggerMiddleware.js ✓ (REQUEST LOGGING)
+│   │   └── Logs to data/logs.txt with timestamp, method, URL
+│   │
+│   ├── 📄 errorMiddleware.js ✓ (ERROR HANDLING)
+│   │   └── Centralized error handler for all errors
+│   │
+│   └── 📄 authMiddleware.js ✓ (AUTHENTICATION GUARDS)
+│       └── isAuthenticated, isAdmin, isStudent
+│
+├── 📁 views/
+│   │
+│   ├── 📄 layout.ejs ✓ (BASE LAYOUT - Optional)
+│   │   └── Common navbar and structure
+│   │
+│   ├── 📄 index.ejs ✓ (HOME PAGE)
+│   │   └── Welcome page with features overview
+│   │
+│   ├── 📄 login.ejs ✓ (LOGIN PAGE)
+│   │   └── Student/Admin login form
+│   │
+│   ├── 📄 register.ejs ✓ (REGISTRATION PAGE)
+│   │   └── Student registration form
+│   │
+│   ├── 📄 dashboard.ejs ✓ (STUDENT DASHBOARD)
+│   │   └── Student home with quick actions
+│   │
+│   ├── 📄 quizzes.ejs ✓ (QUIZZES LISTING PAGE)
+│   │   └── All available quizzes in card format
+│   │
+│   ├── 📄 quizDetails.ejs ✓ (QUIZ DETAILS PAGE)
+│   │   └── Quiz information and start button
+│   │
+│   ├── 📄 attemptQuiz.ejs ✓ (QUIZ ATTEMPT PAGE)
+│   │   └── Quiz questions, options, timer
+│   │
+│   ├── 📄 result.ejs ✓ (RESULT PAGE)
+│   │   └── Score, percentage, performance status
+│   │
+│   ├── 📄 leaderboard.ejs ✓ (LEADERBOARD PAGE)
+│   │   └── Ranked students by performance
+│   │
+│   ├── 📄 studentResults.ejs ✓ (STUDENT RESULTS PAGE)
+│   │   └── All quiz results for a student
+│   │
+│   ├── 📄 myAttempts.ejs ✓ (ATTEMPTS HISTORY PAGE)
+│   │   └── Student's quiz attempt history
+│   │
+│   ├── 📄 error.ejs ✓ (ERROR PAGE)
+│   │   └── Error display with status code
+│   │
+│   └── 📁 admin/
+│       │
+│       ├── 📄 adminDashboard.ejs ✓ (ADMIN DASHBOARD)
+│       │   └── System statistics and quick actions
+│       │
+│       ├── 📄 adminQuizzes.ejs ✓ (MANAGE QUIZZES PAGE)
+│       │   └── List all quizzes with edit/delete options
+│       │
+│       ├── 📄 addQuiz.ejs ✓ (ADD QUIZ FORM)
+│       │   └── Create new quiz form
+│       │
+│       ├── 📄 editQuiz.ejs ✓ (EDIT QUIZ FORM)
+│       │   └── Edit existing quiz
+│       │
+│       ├── 📄 manageUsers.ejs ✓ (MANAGE STUDENTS PAGE)
+│       │   └── List all registered students
+│       │
+│       ├── 📄 manageQuestions.ejs ✓ (MANAGE QUESTIONS PAGE)
+│       │   └── List questions for a quiz
+│       │
+│       ├── 📄 addQuestion.ejs ✓ (ADD QUESTION FORM)
+│       │   └── Add new question to quiz
+│       │
+│       ├── 📄 editQuestion.ejs ✓ (EDIT QUESTION FORM)
+│       │   └── Edit existing question
+│       │
+│       ├── 📄 quizAttempts.ejs ✓ (QUIZ ATTEMPTS PAGE)
+│       │   └── All student attempts for a quiz
+│       │
+│       └── 📄 analytics.ejs ✓ (ANALYTICS DASHBOARD)
+│           └── Analytics and performance data
+│
+├── 📁 public/
+│   │
+│   ├── 📁 css/
+│   │   └── 📄 style.css ✓ (MAIN STYLESHEET - 800+ lines)
+│   │       └── Professional responsive styling
+│   │
+│   ├── 📁 js/
+│   │   ├── 📄 main.js ✓ (CLIENT-SIDE UTILITIES)
+│   │   │   └── Notifications, validation, utilities
+│   │   │
+│   │   └── 📄 quiz-timer.js ✓ (QUIZ TIMER FUNCTIONALITY)
+│   │       └── Countdown timer, auto-submit, form handling
+│   │
+│   └── 📁 images/
+│       └── (Directory for images - ready to use)
+│
+└── 📁 data/
+    └── logs.txt (AUTO-GENERATED)
+        └── Request logs with timestamps
+
+
+📊 FILE COUNT SUMMARY
+═════════════════════════════════════════════════════════════════
+
+Configuration Files:              5 files
+  ├── app.js, package.json, README.md, PROJECT_SUMMARY.txt, SETUP.sh
+
+Database Models:                  5 files
+  ├── User.js, Quiz.js, Question.js, Attempt.js, Result.js
+
+Controllers:                      5 files
+  ├── authController.js, quizController.js, questionController.js,
+  │   attemptController.js, adminController.js
+
+Routes:                           5 files
+  ├── authRoutes.js, quizRoutes.js, questionRoutes.js,
+  │   attemptRoutes.js, adminRoutes.js
+
+Middleware:                       3 files
+  ├── loggerMiddleware.js, errorMiddleware.js, authMiddleware.js
+
+Views (Main):                    13 files
+  ├── index.ejs, login.ejs, register.ejs, dashboard.ejs,
+  │   quizzes.ejs, quizDetails.ejs, attemptQuiz.ejs, result.ejs,
+  │   leaderboard.ejs, studentResults.ejs, myAttempts.ejs,
+  │   error.ejs, layout.ejs
+
+Views (Admin):                    9 files
+  ├── adminDashboard.ejs, adminQuizzes.ejs, addQuiz.ejs,
+  │   editQuiz.ejs, manageUsers.ejs, manageQuestions.ejs,
+  │   addQuestion.ejs, editQuestion.ejs, quizAttempts.ejs,
+  │   analytics.ejs
+
+Static Files:                     3 files
+  ├── style.css, main.js, quiz-timer.js
+
+Documentation:                   3 files
+  ├── README.md, PROJECT_SUMMARY.txt, SETUP.sh
+
+─────────────────────────────────────────────────────────────────
+TOTAL FILES CREATED:              50+ files
+
+
+🎯 CORE FUNCTIONALITY BY FILE
+═════════════════════════════════════════════════════════════════
+
+AUTHENTICATION:
+  • authController.js  → Register, Login, Logout, Events
+  • authRoutes.js      → Route definitions
+  • authMiddleware.js  → Guard protection
+
+QUIZ MANAGEMENT:
+  • quizController.js     → Create, Read, Update, Delete
+  • quizRoutes.js         → RESTful endpoints
+  • Quiz.js (model)       → Schema definition
+
+QUESTION MANAGEMENT:
+  • questionController.js → CRUD operations
+  • questionRoutes.js     → Route definitions
+  • Question.js (model)   → Schema with validation
+
+QUIZ ATTEMPTS:
+  • attemptController.js  → Start, Submit, Calculate
+  • attemptRoutes.js      → Route definitions
+  • Attempt.js (model)    → Schema for attempts
+
+RESULT & SCORING:
+  • Result.js (model)     → Result schema
+  • Score calculation in attemptController.js
+  • result.ejs            → Result display
+
+LEADERBOARD:
+  • adminController.js    → Aggregation pipeline
+  • leaderboard.ejs       → Display rankings
+
+ANALYTICS:
+  • adminController.js    → Analytics aggregation
+  • analytics.ejs         → Analytics display
+
+ADMIN OPERATIONS:
+  • adminController.js    → All admin logic
+  • adminRoutes.js        → Admin endpoints
+  • Admin views (9 files) → Admin pages
+
+LOGGING:
+  • loggerMiddleware.js   → Request logging
+  • data/logs.txt         → Log storage
+
+ERROR HANDLING:
+  • errorMiddleware.js    → Central error handler
+  • error.ejs             → Error page
+
+STYLING:
+  • style.css             → Professional styling
+  • Responsive design
+  • Color scheme defined
+
+
+🚀 HOW TO USE THE FILES
+═════════════════════════════════════════════════════════════════
+
+1. Installation:
+   $ cd quizmaster
+   $ npm install
+
+2. Start MongoDB:
+   Make sure MongoDB is running on port 27017
+
+3. Run Application:
+   $ npm run dev        (Development with auto-reload)
+   $ npm start          (Production)
+
+4. Access in Browser:
+   http://localhost:3000
+
+5. View Logs:
+   $ cat data/logs.txt
+
+
+📝 IMPORTANT FILES TO REVIEW
+═════════════════════════════════════════════════════════════════
+
+START HERE:
+1. README.md          → Complete documentation
+2. app.js             → Main application entry point
+3. models/*.js        → Database schemas
+
+THEN REVIEW:
+4. controllers/*.js   → Business logic
+5. routes/*.js        → API endpoints
+6. middleware/*.js    → Cross-cutting concerns
+
+FRONTEND:
+7. views/*.ejs        → HTML templates
+8. public/css/style.css → Styling
+
+UTILITIES:
+9. PROJECT_SUMMARY.txt → Quick reference
+10. SETUP.sh           → Quick setup script
+
+
+✅ ALL FILES COMPLETED AND READY TO USE
+═════════════════════════════════════════════════════════════════
+
+The project is PRODUCTION-READY with:
+✓ All models created with validation
+✓ All controllers implemented with full logic
+✓ All routes configured (RESTful)
+✓ All middleware set up
+✓ All views created and styled
+✓ Complete error handling
+✓ Request logging system
+✓ Authentication & authorization
+✓ Admin analytics
+✓ Professional styling
+✓ Comprehensive documentation
+
+Ready to npm install and npm run dev!

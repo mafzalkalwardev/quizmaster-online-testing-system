@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster Admin</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/students">Students</a></li>
+                <li><span class="user-name">Admin: <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="students-section">
+            <a href="/admin/dashboard" class="btn btn-secondary">← Back to Dashboard</a>
+
+            <h1>Manage Students</h1>
+            <p class="subtitle">All registered students</p>
+
+            <% if (students.length === 0) { %>
+                <div class="empty-state">
+                    <p>No students registered yet.</p>
+                </div>
+            <% } else { %>
+                <div class="table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Registered At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% students.forEach((student, index) => { %>
+                                <tr>
+                                    <td><%= index + 1 %></td>
+                                    <td><%= student.name %></td>
+                                    <td><%= student.email %></td>
+                                    <td><%= new Date(student.createdAt).toLocaleDateString() %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

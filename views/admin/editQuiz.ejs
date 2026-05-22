@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Quiz - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster Admin</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/quizzes">Quizzes</a></li>
+                <li><span class="user-name">Admin: <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="form-section">
+            <a href="/admin/quizzes" class="btn btn-secondary">← Back to Quizzes</a>
+
+            <h1>Edit Quiz</h1>
+
+            <% if (typeof error !== 'undefined' && error) { %>
+                <div class="alert alert-error"><%= error %></div>
+            <% } %>
+
+            <form method="POST" action="/quizzes/admin/<%= quiz._id %>/edit?_method=PUT" class="admin-form">
+                <div class="form-group">
+                    <label for="title">Quiz Title *</label>
+                    <input type="text" id="title" name="title" value="<%= quiz.title %>" placeholder="Enter quiz title" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="<%= quiz.category %>"><%= quiz.category %></option>
+                            <option value="General Knowledge">General Knowledge</option>
+                            <option value="Science">Science</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="English">English</option>
+                            <option value="Programming">Programming</option>
+                            <option value="History">History</option>
+                            <option value="Geography">Geography</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty Level *</label>
+                        <select id="difficulty" name="difficulty" required>
+                            <option value="<%= quiz.difficulty %>"><%= quiz.difficulty %></option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="totalMarks">Total Marks *</label>
+                        <input type="number" id="totalMarks" name="totalMarks" value="<%= quiz.totalMarks %>" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeLimit">Time Limit (minutes) *</label>
+                        <input type="number" id="timeLimit" name="timeLimit" value="<%= quiz.timeLimit %>" min="1" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg">Update Quiz</button>
+                <a href="/admin/quizzes" class="btn btn-secondary">Cancel</a>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

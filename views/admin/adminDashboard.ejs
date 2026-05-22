@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster Admin</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/quizzes">Quizzes</a></li>
+                <li><a href="/admin/students">Students</a></li>
+                <li><a href="/admin/analytics">Analytics</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><span class="user-name">Admin: <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="admin-dashboard">
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">System Overview & Statistics</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3>Total Students</h3>
+                        <p class="stat-number"><%= stats.totalStudents %></p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-content">
+                        <h3>Total Quizzes</h3>
+                        <p class="stat-number"><%= stats.totalQuizzes %></p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>Total Attempts</h3>
+                        <p class="stat-number"><%= stats.totalAttempts %></p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <h3>Average Score</h3>
+                        <p class="stat-number"><%= stats.averageScore %>%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-actions">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="/quizzes/admin/create" class="btn btn-primary">➕ Create New Quiz</a>
+                    <a href="/admin/quizzes" class="btn btn-secondary">📋 Manage Quizzes</a>
+                    <a href="/admin/students" class="btn btn-secondary">👥 View Students</a>
+                    <a href="/admin/analytics" class="btn btn-secondary">📊 View Analytics</a>
+                </div>
+            </div>
+
+            <div class="admin-info">
+                <h3>Top Quiz</h3>
+                <p><%= stats.topQuiz %></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

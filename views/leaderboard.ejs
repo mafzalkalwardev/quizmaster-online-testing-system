@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <% if (user && user.userId) { %>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/quizzes">Quizzes</a></li>
+                    <% if (user.role === 'admin') { %>
+                        <li><a href="/admin/dashboard">Admin Panel</a></li>
+                    <% } %>
+                    <li><span class="user-name">Hello, <%= user.name %></span></li>
+                    <li><a href="/logout" class="logout-btn">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="leaderboard-section">
+            <h1>🏆 Leaderboard</h1>
+            <p class="subtitle">Top Performing Students</p>
+
+            <% if (leaderboard.length === 0) { %>
+                <div class="empty-state">
+                    <p>No student has attempted any quiz yet.</p>
+                </div>
+            <% } else { %>
+                <div class="leaderboard-table-wrapper">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Student Name</th>
+                                <th>Average Score (%)</th>
+                                <th>Total Attempts</th>
+                                <th>Total Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% leaderboard.forEach((entry, index) => { %>
+                                <tr class="<%= index === 0 ? 'rank-1' : index === 1 ? 'rank-2' : index === 2 ? 'rank-3' : '' %>">
+                                    <td class="rank-cell">
+                                        <% if (index === 0) { %>
+                                            🥇 1st
+                                        <% } else if (index === 1) { %>
+                                            🥈 2nd
+                                        <% } else if (index === 2) { %>
+                                            🥉 3rd
+                                        <% } else { %>
+                                            <%= index + 1 %>
+                                        <% } %>
+                                    </td>
+                                    <td><%= entry._id %></td>
+                                    <td><%= entry.averageScore.toFixed(2) %>%</td>
+                                    <td><%= entry.totalAttempts %></td>
+                                    <td><%= entry.totalScore.toFixed(0) %></td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

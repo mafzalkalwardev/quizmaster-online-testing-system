@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Questions - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster Admin</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/admin/dashboard">Dashboard</a></li>
+                <li><a href="/admin/quizzes">Quizzes</a></li>
+                <li><span class="user-name">Admin: <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="questions-section">
+            <a href="/admin/quizzes" class="btn btn-secondary">← Back to Quizzes</a>
+
+            <h1>Manage Questions: <%= quiz.title %></h1>
+
+            <div class="add-question-btn">
+                <a href="/questions/quiz/<%= quiz._id %>/add" class="btn btn-primary">➕ Add New Question</a>
+            </div>
+
+            <% if (questions.length === 0) { %>
+                <div class="empty-state">
+                    <p>No questions added yet. <a href="/questions/quiz/<%= quiz._id %>/add">Add the first question</a></p>
+                </div>
+            <% } else { %>
+                <div class="questions-list">
+                    <% questions.forEach((question, index) => { %>
+                        <div class="question-item">
+                            <div class="question-header">
+                                <h3>Question <%= index + 1 %></h3>
+                                <span class="marks-badge"><%= question.marks %> marks</span>
+                            </div>
+                            <p class="question-text"><%= question.questionText %></p>
+                            <div class="options-list">
+                                <p><strong>A:</strong> <%= question.optionA %></p>
+                                <p><strong>B:</strong> <%= question.optionB %></p>
+                                <p><strong>C:</strong> <%= question.optionC %></p>
+                                <p><strong>D:</strong> <%= question.optionD %></p>
+                            </div>
+                            <p class="correct-answer"><strong>Correct Answer:</strong> <%= question.correctAnswer %></p>
+                            <div class="question-actions">
+                                <a href="/questions/quiz/<%= quiz._id %>/<%= question._id %>/edit" class="btn btn-secondary btn-sm">Edit</a>
+                                <button class="btn btn-danger btn-sm" onclick="deleteQuestion('<%= question._id %>', '<%= quiz._id %>')">Delete</button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        function deleteQuestion(questionId, quizId) {
+            if (confirm('Are you sure you want to delete this question?')) {
+                fetch(`/questions/quiz/${quizId}/${questionId}/delete`, {
+                    method: 'DELETE'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Error deleting question');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

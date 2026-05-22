@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quiz Attempts - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/quizzes">Quizzes</a></li>
+                <li><span class="user-name">Hello, <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="attempts-section">
+            <h1>My Quiz Attempts</h1>
+            <p class="subtitle">History of your quiz attempts</p>
+
+            <% if (attempts.length === 0) { %>
+                <div class="empty-state">
+                    <p>You haven't attempted any quizzes yet. <a href="/quizzes">Start a quiz</a></p>
+                </div>
+            <% } else { %>
+                <div class="attempts-list">
+                    <% attempts.forEach(attempt => { %>
+                        <div class="attempt-card">
+                            <div class="attempt-header">
+                                <h3><%= attempt.quizId.title %></h3>
+                                <span class="attempt-date"><%= new Date(attempt.attemptedAt).toLocaleDateString() %></span>
+                            </div>
+                            <div class="attempt-body">
+                                <p><strong>Score:</strong> <%= attempt.score %></p>
+                                <p><strong>Total Questions:</strong> <%= attempt.totalQuestions %></p>
+                                <p><strong>Attempted At:</strong> <%= new Date(attempt.attemptedAt).toLocaleString() %></p>
+                            </div>
+                            <div class="attempt-footer">
+                                <a href="/quizzes/<%= attempt.quizId._id %>" class="btn btn-secondary btn-sm">View Quiz</a>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

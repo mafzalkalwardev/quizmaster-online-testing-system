@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - QuizMaster</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>📚 QuizMaster</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/quizzes">Quizzes</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><a href="/my-results">My Results</a></li>
+                <li><span class="user-name">Hello, <%= user.name %></span></li>
+                <li><a href="/logout" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="dashboard">
+            <h1>Welcome, <%= user.name %>!</h1>
+            <p class="subtitle">Your Student Dashboard</p>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>📝 Available Quizzes</h3>
+                    <p>Browse and attempt quizzes to test your knowledge</p>
+                    <a href="/quizzes" class="btn btn-primary">Browse Quizzes</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🏆 Leaderboard</h3>
+                    <p>Check your rank and compare with other students</p>
+                    <a href="/leaderboard" class="btn btn-primary">View Leaderboard</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>📊 My Results</h3>
+                    <p>View your quiz results and performance history</p>
+                    <a href="/my-results" class="btn btn-primary">View Results</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>📋 My Attempts</h3>
+                    <p>See all your quiz attempts and details</p>
+                    <a href="/my-attempts" class="btn btn-primary">View Attempts</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 QuizMaster. Online Testing System</p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
