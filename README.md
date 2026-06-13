@@ -1,4 +1,40 @@
-# QuizMaster - Online Testing System
+<div align="center">
+
+# 🚀 Quizmaster Online Testing System
+
+**A complete online testing and quiz management system built with Node.js, Express.js, MongoDB, EJS, and MVC architecture featuring authentication, quiz management, analytics, and leaderboard functionality.**
+
+Documented · MIT licensed · Maintained
+
+![EJS](https://img.shields.io/badge/EJS-Latest-555555?style=for-the-badge)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+[Features](#-features) · [Quick Start](#-quick-start) · [Screenshots](#-screenshots) · [Contributing](CONTRIBUTING.md)
+
+</div>
+
+---
+
+## 🖼 Screenshots
+
+![Quizmaster Online Testing System screenshot](docs/screenshots/placeholder.svg)
+
+*Replace `docs/screenshots/placeholder.svg` with real app screenshots.*
+
+---
+
+## 🐍 Contribution graph
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake.svg" />
+</picture>
+
+
+---
 
 ## 📚 Project Overview
 
