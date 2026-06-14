@@ -1,5 +1,5 @@
 {
-  "name": "quizmaster-online-testing-system",
+  "name": "@mafzalkalwardev/quizmaster-online-testing-system",
   "version": "1.0.0",
   "description": "An online testing system built with Node.js, Express, and MongoDB",
   "main": "app.js",
@@ -29,5 +29,12 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mafzalkalwardev/quizmaster-online-testing-system.git"
   }
 }
