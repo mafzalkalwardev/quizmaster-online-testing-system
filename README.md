@@ -715,3 +715,8 @@ This project is developed for educational purposes as part of a backend developm
 **Created by: Muhammad Afzal Kalwar, Ayesha Bibi, Hafsa Kanwal Awan**  
 **Date: May 2024**  
 **Version: 1.0.0**
+
+## Screenshots
+
+![quizmaster-online-testing-system dashboard](docs/screenshots/app.png)
+
