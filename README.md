@@ -10,29 +10,17 @@ Documented · MIT licensed · Maintained
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-[Features](#-features) · [Quick Start](#-quick-start) · [Screenshots](#-screenshots) · [Contributing](CONTRIBUTING.md)
-
 </div>
 
 ---
 
-## 🖼 Screenshots
-
-![Quizmaster Online Testing System screenshot](docs/screenshots/placeholder.svg)
-
-*Replace `docs/screenshots/placeholder.svg` with real app screenshots.*
-
----
-
 ## 🐍 Contribution graph
-
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake.svg" />
   <img alt="Contribution snake" src="https://raw.githubusercontent.com/mafzalkalwardev/quizmaster-online-testing-system/output/snake.svg" />
 </picture>
-
 
 ---
 
@@ -715,7 +703,3 @@ This project is developed for educational purposes as part of a backend developm
 **Created by: Muhammad Afzal Kalwar, Ayesha Bibi, Hafsa Kanwal Awan**  
 **Date: May 2024**  
 **Version: 1.0.0**
-
-## Screenshots
-
-![quizmaster-online-testing-system dashboard](docs/screenshots/app.png)
