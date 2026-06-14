@@ -719,4 +719,3 @@ This project is developed for educational purposes as part of a backend developm
 ## Screenshots
 
 ![quizmaster-online-testing-system dashboard](docs/screenshots/app.png)
-
